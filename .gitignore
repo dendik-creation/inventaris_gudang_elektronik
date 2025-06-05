@@ -1,0 +1,23 @@
+# Environment files
+.env
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# IDE/editor folders
+.vscode/
+.idea/
+.zed/
+
+# Composer dependencies
+/vendor/
+
+# Node.js dependencies
+/node_modules/
+
+# Log files
+*.log
+
+# Cache/temp files
+/tmp/
