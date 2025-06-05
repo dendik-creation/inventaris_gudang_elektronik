@@ -1,6 +1,6 @@
 # Inventaris Gudang Elektronik
 
-## Infromasi Projek
+## Tujuan Projek
 
 Proyek ini dikerjakan untuk memenuhi tugas akhir mata kuliah Praktikum Pemrograman Lanjut. Dikerjakan secara kelompok beranggotakan
 
@@ -9,6 +9,10 @@ Proyek ini dikerjakan untuk memenuhi tugas akhir mata kuliah Praktikum Pemrogram
 - Naufal Rizqi Ilham Gibran (202451154)
 - Ahmad Ilham Mujib (202451163)
 - Aditya Wahyu Aji Pangestu (202451153)
+
+## Isi Projek
+
+Inventaris Gudang Elektronik berfungsi untuk mengelola barang gudang khususnya elektronik mulai dari pengelolaan barang, kategori barang, hingga log atau aktivitas keluar masuknya barang
 
 ## Instalasi
 
