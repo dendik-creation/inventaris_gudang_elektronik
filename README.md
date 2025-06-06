@@ -9,7 +9,7 @@ Inventaris Gudang Elektronik adalah aplikasi berbasis web untuk mengelola invent
 Proyek ini dibuat untuk memenuhi tugas akhir mata kuliah Praktikum Pemrograman Lanjut dan dikerjakan secara berkelompok:
 
 - Dendi' Setiawan (202451181)
-- Muhammad Bintang Adhipura
+- Muhammad Bintang Adhipura (202451165)
 - Naufal Rizqi Ilham Gibran (202451154)
 - Ahmad Ilham Mujib (202451163)
 - Aditya Wahyu Aji Pangestu (202451153)
