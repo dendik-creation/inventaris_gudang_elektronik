@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+body {
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+}
+.sidebar {
+  min-width: 200px;
+  max-width: 260px;
+  min-height: 100vh;
+  background: #103992;
+  color: #fff;
+  font-family: "Space Grotesk", sans-serif;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  font-family: "Space Grotesk", sans-serif;
+}
+.sidebar a:hover {
+  background: #e5e5e527;
+}
+
+.sidebar a.active {
+  background: #e5e5e527;
+  color: #e5e5e5;
+}

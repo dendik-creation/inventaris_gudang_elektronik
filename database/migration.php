@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../config/env.php';
+require __DIR__ . '/../config/env.php';
 try {
     $pdo = new PDO(
         'mysql:host=' . $_ENV['DB_HOST'],
@@ -12,6 +12,11 @@ try {
 }
 
 echo "🛠️ Inisialisasi Database..\n";
+
+// Cek apakah database sudah ada
+$pdo->exec('DROP DATABASE IF EXISTS ' . $_ENV['DB_NAME']);
+$pdo->exec('CREATE DATABASE ' . $_ENV['DB_NAME'] . ' CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+$pdo->exec('USE ' . $_ENV['DB_NAME']);
 
 $sqls = require __DIR__ . '/database.php';
 

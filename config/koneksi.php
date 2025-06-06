@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '../config/env.php';
+require __DIR__ . '/env.php';
 $host = $_ENV['DB_HOST'] ?? 'localhost';
 $db_name = $_ENV['DB_NAME'] ?? '';
 $db_user = $_ENV['DB_USER'] ?? '';

@@ -23,8 +23,8 @@ return [
         barang_id INT NOT NULL,
         quantity INT NOT NULL,
         aksi ENUM("MASUK", "KELUAR") NOT NULL,
+        waktu TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         keterangan TEXT NULL,
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (barang_id) REFERENCES barang(id) ON DELETE CASCADE
     )'
 ];
