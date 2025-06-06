@@ -6,6 +6,7 @@ ob_start();
 
 <!-- Content Start -->
 <section class="">
+    <h1 class="text-center">Data Kategori Barang</h1>
 </section>
 <!-- Content End -->
 
