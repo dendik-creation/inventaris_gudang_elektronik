@@ -7,21 +7,25 @@ $menu = [
         'label' => 'Dashboard',
         'href' => '/inventaris_gudang_elektronik/view/dashboard',
         'icon' => 'bi-grid',
+        'code' => 'dashboard',
     ],
     [
         'label' => 'Data Barang',
         'href' => '/inventaris_gudang_elektronik/view/data-barang',
         'icon' => 'bi-box',
+        'code' => 'data-barang',
     ],
     [
         'label' => 'Data Kategori',
         'href' => '/inventaris_gudang_elektronik/view/data-kategori',
         'icon' => 'bi-tags',
+        'code' => 'data-kategori',
     ],
     [
         'label' => 'Aktivitas Barang',
         'href' => '/inventaris_gudang_elektronik/view/aktivitas-barang',
         'icon' => 'bi-activity',
+        'code' => 'aktivitas-barang',
     ],
 ];
 ?>
@@ -43,7 +47,7 @@ $menu = [
         <nav class="sidebar position-relative overflow-hidden">
             <h5 class="p-3">Inventaris Gudang Elektronik</h5>
             <?php foreach ($menu as $item): 
-                $active = strpos(strtolower($_SERVER['REQUEST_URI']), strtolower($item['label'])) !== false ? 'active' : '';
+                $active = strpos(strtolower($_SERVER['REQUEST_URI']), strtolower($item['code'])) !== false ? 'active' : '';
             ?>
             <a href="<?= htmlspecialchars($item['href']) ?>" class="<?= $active ?>">
                 <i class="bi <?= htmlspecialchars($item['icon']) ?>"></i>

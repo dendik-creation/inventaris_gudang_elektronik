@@ -23,19 +23,30 @@ Proyek ini dibuat untuk memenuhi tugas akhir mata kuliah Praktikum Pemrograman L
 
 ## Instalasi
 
-1. Clone repositori:
+1. Pindah ke direktori `htdocs` atau `www` sesuai web server yang digunakan:
+   ```bash
+   # Untuk XAMPP
+   cd C:/xampp/htdocs
+   # Untuk Laragon
+   cd C:/laragon/www
+   ```
+2. Clone repositori:
    ```bash
    git clone https://github.com/dendik-creation/inventaris_gudang_elektronik.git
    ```
-2. Salin file konfigurasi:
+3. Masuk ke directory:
+   ```bash
+   cd inventaris_gudang_elektronik
+   ```
+4. Salin file konfigurasi:
    ```bash
    cp .env.example .env
    ```
-3. Jalankan migrasi database:
+5. Jalankan migrasi database:
    ```bash
    php database/migration.php
    ```
-4. Jalankan aplikasi pada web server lokal (misal: http://localhost/inventaris_gudang_elektronik).
+6. Jalankan aplikasi pada web server lokal (misal: http://localhost/inventaris_gudang_elektronik).
 
 ## Fitur Utama
 
