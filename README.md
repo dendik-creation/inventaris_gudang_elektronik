@@ -18,7 +18,7 @@ Inventaris Gudang Elektronik berfungsi untuk mengelola barang gudang khususnya e
 
 1. Clone repositori:
    ```bash
-   git clone https://github.com/username/inventaris_gudang_elektronik.git
+   git clone https://github.com/dendik-creation/inventaris_gudang_elektronik.git
    ```
 2. Copy .env.example ke .env
    ```bash
