@@ -20,8 +20,12 @@ Inventaris Gudang Elektronik berfungsi untuk mengelola barang gudang khususnya e
    ```bash
    git clone https://github.com/username/inventaris_gudang_elektronik.git
    ```
-2. Jalankan migrasi database:
+2. Copy .env.example ke .env
+   ```bash
+   cp .env.example .env
+   ```
+3. Jalankan migrasi database:
    ```bash
    php database/migration.php
    ```
-3. Test projek dengan localhost
+4. Test projek dengan localhost
