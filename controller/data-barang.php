@@ -83,7 +83,7 @@ while ($row = mysqli_fetch_assoc($res_kat)) {
     $kategori_list[] = $row;
 }
 
-// Query ambil data barang beserta kategori + search
+// Index & Search
 $barangs = "SELECT b.id, b.nama_barang, k.nama_kategori, b.quantity
         FROM barang b
         INNER JOIN kategori k ON b.kategori_id = k.id
