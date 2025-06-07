@@ -53,3 +53,15 @@ Proyek ini dibuat untuk memenuhi tugas akhir mata kuliah Praktikum Pemrograman L
 - Manajemen data barang elektronik
 - Pengelolaan kategori barang
 - Pencatatan log aktivitas keluar-masuk barang
+
+## Screenshot
+
+Berikut adalah beberapa tampilan aplikasi:
+
+| Dashboard                              | Data Barang                      |
+| -------------------------------------- | -------------------------------- |
+| ![Dashboard](public/img/dashboard.png) | ![Barang](public/img/barang.png) |
+
+| Data Kategori                        | Aktivitas Barang                                     |
+| ------------------------------------ | ---------------------------------------------------- |
+| ![Kategori](public/img/kategori.png) | ![Aktivitas Barang](public/img/aktivitas-barang.png) |
