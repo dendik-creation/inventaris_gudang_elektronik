@@ -22,6 +22,8 @@ function getDashboardData()
         FROM aktivitas_barang ab
         INNER JOIN barang brg ON ab.barang_id = brg.id
         INNER JOIN kategori ktg ON brg.kategori_id = ktg.id
+        ORDER BY ab.waktu DESC
+        LIMIT 5
 
     ";
     $resultAktivitas = mysqli_query($koneksi, $query_aktivitas_barang);

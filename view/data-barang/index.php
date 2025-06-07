@@ -5,8 +5,8 @@ $css_path = '../../public/css/layout.css';
 ob_start();
 ?>
 
-<!-- Form Search & Print -->
-<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+<!-- Form Search, Barang keluar masuk, print -->
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
     <form method="get" class="d-flex gap-2 w-50">
         <input type="text" required name="search" class="form-control w-100" placeholder="Cari barang/kategori..." value="<?= htmlspecialchars($search) ?>">
         <button type="submit" class="btn btn-info">Cari</button>
@@ -14,7 +14,10 @@ ob_start();
             <a href="index.php" class="btn btn-secondary">Reset</a>
         <?php endif; ?>
     </form>
-    <a target="_blank" href="print.php" class="btn btn-success">Print</a>
+    <div class="d-flex gap-2">
+        <a href="index.php?tambah=1" class="btn btn-warning">Barang Keluar & Masuk</a>
+        <a target="_blank" href="print.php" class="btn btn-success">Print</a>
+    </div>
 </div>
 
 <!-- Form Tambah/Edit -->

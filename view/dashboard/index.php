@@ -1,5 +1,6 @@
 <?php
 require_once '../../controller/dashboard.php';
+require_once '../../utils/func.php';
 $dashboard_data = getDashboardData();
 $title = "Dashboard";
 $css_path = "../../public/css/layout.css";
@@ -47,6 +48,7 @@ ob_start();
                             <th>Barang</th>
                             <th>Kategori</th>
                             <th>Aksi Barang</th>
+                            <th>Waktu</th>
                             <th>Qty</th>
                             <th>Keterangan</th>
                         </tr>
@@ -59,6 +61,7 @@ ob_start();
                                     <td><?php echo htmlspecialchars($log['nama_barang']); ?></td>
                                     <td><?php echo htmlspecialchars($log['nama_kategori']); ?></td>
                                     <td><?php echo htmlspecialchars($log['aksi']); ?></td>
+                                    <td><?php echo htmlspecialchars(humanDateFriendly($log['waktu'])); ?></td>
                                     <td><?php echo htmlspecialchars($log['quantity']); ?></td>
                                     <td><?php echo htmlspecialchars($log['keterangan'] ?? '-'); ?></td>
                                 </tr>

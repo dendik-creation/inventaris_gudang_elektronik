@@ -44,8 +44,8 @@ $menu = [
 
 <body>
     <div class="d-flex">
-        <nav class="sidebar position-relative overflow-hidden">
-            <h5 class="p-3">Inventaris Gudang Elektronik</h5>
+        <nav class="sidebar position-sticky top-0 vh-100 overflow-hidden" style="height:100vh;">
+            <h5 class="p-3">Inventaris Gudang Elektronik 📦</h5>
             <?php foreach ($menu as $item): 
                 $active = strpos(strtolower($_SERVER['REQUEST_URI']), strtolower($item['code'])) !== false ? 'active' : '';
             ?>
@@ -55,10 +55,19 @@ $menu = [
             </a>
             <?php endforeach; ?>
             <div class="position-absolute bottom-0 mb-3 w-100 start-0">
-                <a target="_blank" href="https://github.com/dendik-creation/inventaris_gudang_elektronik">
-                    <i class="bi bi-github"></i>
-                    <span class="ms-2">Kontribusi Projek</span>
-                </a>
+                <div class="d-flex flex-column gap-2">
+                    <?php
+                        $active = strpos(strtolower($_SERVER['REQUEST_URI']), '/inventaris_gudang_elektronik/view/member') !== false ? 'active' : '';
+                    ?>
+                    <a href="/inventaris_gudang_elektronik/view/member/" class="<?= $active ?>">
+                        <i class="bi bi-people"></i>
+                        <span class="ms-2">Anggota Kelompok</span>
+                    </a>
+                    <a target="_blank" href="https://github.com/dendik-creation/inventaris_gudang_elektronik">
+                        <i class="bi bi-github"></i>
+                        <span class="ms-2">Kontribusi Projek</span>
+                    </a>
+                </div>
             </div>
         </nav>
         <div class="container-fluid p-4">

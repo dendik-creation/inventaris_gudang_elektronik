@@ -38,7 +38,7 @@ Proyek ini dibuat untuk memenuhi tugas akhir mata kuliah Praktikum Pemrograman L
    ```bash
    cd inventaris_gudang_elektronik
    ```
-4. Salin file konfigurasi:
+4. Salin file environment:
    ```bash
    cp .env.example .env
    ```

@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../controller/aktivitas-barang.php';
+require_once '../../utils/func.php';
 $title = 'Log Aktivitas Barang';
 ob_start();
 ?>
@@ -27,7 +28,7 @@ ob_start();
                 <td><?= htmlspecialchars($row['nama_kategori']) ?></td>
                 <td><?= (int) $row['quantity'] ?></td>
                 <td><?= htmlspecialchars($row['aksi']) ?></td>
-                <td><?= htmlspecialchars($row['waktu']) ?></td>
+                <td><?= htmlspecialchars(humanDateFriendly($row['waktu'])) ?></td>
                 <td><?= htmlspecialchars($row['keterangan']) ?></td>
             </tr>
             <?php endwhile; ?>
