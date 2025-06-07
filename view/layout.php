@@ -40,6 +40,26 @@ $menu = [
     <?php if ($css_path): ?>
     <link rel="stylesheet" href="<?= htmlspecialchars($css_path) ?>">
     <?php endif; ?>
+    <style>
+    @media print {
+        body, .d-flex, .container-fluid, .container-fluid * {
+            visibility: visible !important;
+        }
+        body * {
+            visibility: hidden;
+        }
+        .table, .table *, .card.mt-4, .card.mt-4 * {
+            visibility: visible !important;
+        }
+        .table, .card.mt-4 {
+            position: static;
+            width: 100%;
+        }
+        .btn, form, .d-flex > nav, .mb-3, .card-header .btn, nav.sidebar, .sidebar {
+            display: none !important;
+        }
+    }
+    </style>
 </head>
 
 <body>
