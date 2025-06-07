@@ -1,7 +1,6 @@
 <?php
 require __DIR__ . '/../config/koneksi.php';
 
-
 // Fitur search
 $search = isset($_GET['search']) ? trim($_GET['search']) : '';
 $where = '';

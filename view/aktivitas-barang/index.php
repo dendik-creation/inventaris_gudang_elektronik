@@ -1,28 +1,20 @@
 <?php
-require_once '../../config/koneksi.php';
+require_once __DIR__ . "/../../controller/aktivitas-barang.php";
 $title = 'Aktivitas Barang (Log)';
 $css_path = '../../public/css/layout.css';
 ob_start();
-
-// Query join aktivitas_barang, barang, dan kategori
-$sql = "SELECT 
-            ab.id,
-            brg.nama_barang,
-            ktg.nama_kategori,
-            ab.quantity,
-            ab.aksi,
-            ab.waktu,
-            ab.keterangan
-        FROM aktivitas_barang ab
-        INNER JOIN barang brg ON ab.barang_id = brg.id
-        INNER JOIN kategori ktg ON brg.kategori_id = ktg.id
-        ORDER BY ab.waktu DESC";
-$result = mysqli_query($koneksi, $sql);
 ?>
 
-<!-- Fitur Print -->
-<div class="d-flex justify-content-end mb-3">
-    <button onclick="window.print()" class="btn btn-success">Print</button>
+<!-- Form Search & Print -->
+<div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+    <form method="get" class="d-flex gap-2 w-50">
+        <input type="text" required name="search" class="form-control w-100" placeholder="Cari barang/kategori/aksi" value="<?= htmlspecialchars($search) ?>">
+        <button type="submit" class="btn btn-info">Cari</button>
+        <?php if ($search): ?>
+            <a href="index.php" class="btn btn-secondary">Reset</a>
+        <?php endif; ?>
+    </form>
+    <a target="_blank" href="print.php<?= $search ? '?search=' . urlencode($search) : '' ?>" class="btn btn-success">Print</a>
 </div>
 
 <!-- Content Start -->
@@ -41,9 +33,9 @@ $result = mysqli_query($koneksi, $sql);
                 </tr>
             </thead>
             <tbody>
-                <?php if ($result && mysqli_num_rows($result) > 0): ?>
+                <?php if ($aktivitas_barang && mysqli_num_rows($aktivitas_barang) > 0): ?>
                     <?php $no = 1; ?>
-                    <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <?php while ($row = mysqli_fetch_assoc($aktivitas_barang)): ?>
                         <tr>
                             <td><?= $no++; ?></td>
                             <td><?= htmlspecialchars($row['nama_barang']); ?></td>
