@@ -15,9 +15,63 @@ ob_start();
         <?php endif; ?>
     </form>
     <div class="d-flex gap-2">
-        <a href="index.php?tambah=1" class="btn btn-warning">Barang Keluar & Masuk</a>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#barangModal">Barang Keluar & Masuk</button>
         <a target="_blank" href="print.php" class="btn btn-success">Print</a>
     </div>
+
+
+            <!-- Modal -->
+    <div class="modal fade" id="barangModal" tabindex="-1" aria-labelledby="barangModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="barangModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+    <div class="modal-body">
+        <div class="mb-3">
+                <form method="post" class="row">
+                    <?php if ($edit_data): ?>
+                        <input type="hidden" name="id" value="<?= $edit_data['id'] ?>">
+                    <?php endif; ?>
+                        <input type="hidden" name="<?= $edit_data ? 'edit' : 'tambah' ?>" value="1">
+
+            <div class="col-md-4 col-12">
+                <input type="text" name="nama_barang" class="form-control" placeholder="Nama Barang" required value="<?= $edit_data ?htmlspecialcha($edit_data['nama_barang']) : '' ?>">
+            </div>
+
+            <div class="col-md-4 col-12">
+                <select name="kategori_id" class="form-control" required>
+                    <option value="">Pilih Kategori</option>
+                        <?php foreach ($kategori_list as $kat): ?>
+                    <option value="<?= $kat['id'] ?>" <?= $edit_data && $edit_data['kategori_id'] == $kat['id'] ? 'selected' : '' ?>>
+                        <?= htmlspecialchars($kat['nama_kategori']) ?>
+                    </option>
+                        <?php endforeach; ?>
+                </select>
+        </div>
+        <div class="col-md-4 col-12">
+            <input type="number" name="quantity" class="form-control" placeholder="Jumlah" min="0" required value="<?= $edit_data ? (int)$edit_d
+['quantity'] : '' ?>">
+        </div>
+        <div class="<?= $edit_data ? 'col-6' : 'col-12' ?> mt-2">
+            <button type="submit" class="btn btn-primary w-100"><?= $edit_data ? 'Update Barang' : 'Tambah Barang Baru' ?></button>
+        </div>
+        <div class="col-6 mt-2">
+            <?php if ($edit_data): ?>
+                <a href="index.php" class="btn w-100 btn-secondary">Batal</a>
+            <?php endif; ?>
+        </div>
+    </form>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
 </div>
 
 <!-- Form Tambah/Edit -->
