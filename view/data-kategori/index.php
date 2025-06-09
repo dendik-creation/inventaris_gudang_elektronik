@@ -40,7 +40,7 @@ ob_start();
                 <tr>
                     <th>No</th>
                     <th>Kategori</th>
-                    <th>Jumlah Barang</th>
+                    <th>Jumlah Jenis Barang</th>
                     <th>Aksi</th>
                 </tr>
             </thead>

@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tambah'])) {
         }
 
         mysqli_stmt_close($stmt);
+        session_start();
+        $_SESSION['success_message'] = "Barang berhasil ditambahkan";
         header("Location: index.php");
         exit;
     }
@@ -49,6 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
         mysqli_stmt_bind_param($stmt, "siii", $nama_barang, $kategori_id, $quantity, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        session_start();
+        $_SESSION['success_message'] = "Barang berhasil diperbarui";
         header("Location: index.php");
         exit;
     }
@@ -62,6 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['hapus'])) {
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        session_start();
+        $_SESSION['success_message'] = "Barang berhasil dihapus";
         header("Location: index.php");
         exit;
     }

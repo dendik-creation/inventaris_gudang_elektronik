@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tambah'])) {
         mysqli_stmt_bind_param($stmt, "s", $nama_kategori);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        session_start();
+        $_SESSION['success_message'] = "Kategori berhasil ditambahkan";
         header("Location: index.php");
         exit;
     }
@@ -38,6 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
         mysqli_stmt_bind_param($stmt, "si", $nama_kategori, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        session_start();
+        $_SESSION['success_message'] = "Kategori berhasil diperbarui";
         header("Location: index.php");
         exit;
     }
@@ -51,6 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['hapus'])) {
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
+        session_start();
+        $_SESSION['success_message'] = "Kategori berhasil dihapus";
         header("Location: index.php");
         exit;
     }
