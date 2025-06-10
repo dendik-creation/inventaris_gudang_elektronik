@@ -40,15 +40,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['tambah'])) {
     }
 }
 
+// Tambah barang masuk/keluar
+if ($_SERVER['REQUEST_METHOD'] == "POST" && isset($_POST['barang-keluar-masuk'])) {
+    $barang_id = (int)$_POST['barang_id'];
+    $aksi = $_POST['aksi'];
+    $quantity = (int)$_POST['quantity'];
+    $keterangan = isset($_POST['keterangan']) ? $_POST['keterangan'] : null;
+
+    if ($barang_id && $quantity > 0 && in_array($aksi, ['MASUK', 'KELUAR'])) {
+        // Update quantity barang
+        if ($aksi === 'KELUAR') {
+            $res_qty = mysqli_query($koneksi, "SELECT quantity FROM barang WHERE id = $barang_id");
+            $row_qty = mysqli_fetch_assoc($res_qty);
+            if (!$row_qty || $row_qty['quantity'] < $quantity) {
+            session_start();
+            $_SESSION['error_message'] = "Stok barang tidak mencukupi untuk dikeluarkan.";
+            header("Location: index.php");
+            exit;
+            }
+            $adjustment = -$quantity;
+        } else {
+            $adjustment = $quantity;
+        }
+        $update_stmt = mysqli_prepare($koneksi, "UPDATE barang SET quantity = quantity + ? WHERE id = ?");
+        mysqli_stmt_bind_param($update_stmt, "ii", $adjustment, $barang_id);
+        mysqli_stmt_execute($update_stmt);
+        mysqli_stmt_close($update_stmt);
+
+        // Insert log aktivitas
+        $log_stmt = mysqli_prepare($koneksi, "INSERT INTO aktivitas_barang (barang_id, quantity, aksi, keterangan) VALUES (?, ?, ?, ?)");
+        mysqli_stmt_bind_param($log_stmt, "iiss", $barang_id, $quantity, $aksi, $keterangan);
+        mysqli_stmt_execute($log_stmt);
+        mysqli_stmt_close($log_stmt);
+
+        session_start();
+        $_SESSION['success_message'] = "Aktivitas barang berhasil dicatat";
+        header("Location: index.php");
+        exit;
+    }
+}
+
 // Edit barang
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit'])) {
     $id = (int)$_POST['id'];
     $nama_barang = trim($_POST['nama_barang']);
     $kategori_id = (int)$_POST['kategori_id'];
-    $quantity = (int)$_POST['quantity'];
-    if ($id && $nama_barang !== '' && $kategori_id && $quantity >= 0) {
-        $stmt = mysqli_prepare($koneksi, "UPDATE barang SET nama_barang=?, kategori_id=?, quantity=? WHERE id=?");
-        mysqli_stmt_bind_param($stmt, "siii", $nama_barang, $kategori_id, $quantity, $id);
+    if ($id && $nama_barang !== '' && $kategori_id) {
+        $stmt = mysqli_prepare($koneksi, "UPDATE barang SET nama_barang=?, kategori_id=? WHERE id=?");
+        mysqli_stmt_bind_param($stmt, "sii", $nama_barang, $kategori_id, $id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
         session_start();
