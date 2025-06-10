@@ -55,15 +55,15 @@ ob_start();
                     </thead>
                     <tbody>
                         <?php if (!empty($dashboard_data['aktivitas_barang'])): ?>
-                            <?php foreach ($dashboard_data['aktivitas_barang'] as $i => $log): ?>
+                            <?php foreach ($dashboard_data['aktivitas_barang'] as $i => $row): ?>
                                 <tr>
                                     <td><?php echo $i + 1; ?></td>
-                                    <td><?php echo htmlspecialchars($log['nama_barang']); ?></td>
-                                    <td><?php echo htmlspecialchars($log['nama_kategori']); ?></td>
-                                    <td><?php echo htmlspecialchars($log['aksi']); ?></td>
-                                    <td><?php echo htmlspecialchars(humanDateFriendly($log['waktu'])); ?></td>
-                                    <td><?php echo htmlspecialchars($log['quantity']); ?></td>
-                                    <td><?php echo htmlspecialchars($log['keterangan'] ?? '-'); ?></td>
+                                    <td><?php echo htmlspecialchars($row['nama_barang']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['nama_kategori']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['aksi']); ?></td>
+                                    <td><?php echo htmlspecialchars(humanDateFriendly($row['waktu'])); ?></td>
+                                    <td><?php echo htmlspecialchars($row['quantity']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['keterangan'] ?? '-'); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php else: ?>
